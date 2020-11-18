@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Messages from './components/Messages';
 import Sender from './components/Sender';
 import QuickButtons from './components/QuickButtons';
+import Interaction from './components/Interaction';
 
 import { AnyFunction } from '../../../../utils/types';
 
@@ -26,6 +27,8 @@ type Props = {
   onTextInputChange?: (event: any) => void;
   sendButtonAlt: string;
   showTimeStamp: boolean;
+  showSender: boolean;
+  showInteraction:boolean;
 };
 
 function Conversation({
@@ -43,8 +46,25 @@ function Conversation({
   onQuickButtonClicked,
   onTextInputChange,
   sendButtonAlt,
-  showTimeStamp
+  showTimeStamp,
+  showSender,
+  showInteraction
 }: Props) {
+  var sender = <></>
+  if(showSender){
+    sender = <Sender
+    sendMessage={sendMessage}
+    placeholder={senderPlaceHolder}
+    disabledInput={disabledInput}
+    autofocus={autofocus}
+    onTextInputChange={onTextInputChange}
+    buttonAlt={sendButtonAlt}
+  />
+  }
+  var interaction = <></>
+  if(showInteraction){
+    interaction = <Interaction/>
+  }
   return (
     <div className={cn('rcw-conversation-container', className)} aria-live="polite">
       <Header
@@ -56,14 +76,8 @@ function Conversation({
       />
       <Messages profileAvatar={profileAvatar} showTimeStamp={showTimeStamp} />
       <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
-      <Sender
-        sendMessage={sendMessage}
-        placeholder={senderPlaceHolder}
-        disabledInput={disabledInput}
-        autofocus={autofocus}
-        onTextInputChange={onTextInputChange}
-        buttonAlt={sendButtonAlt}
-      />
+      {sender}
+      {interaction}
     </div>
   );
 }

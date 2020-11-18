@@ -17,6 +17,7 @@ export const MARK_ALL_READ = 'MESSAGES/MARK_ALL_READ';
 export const SET_QUICK_BUTTONS = 'SET_QUICK_BUTTONS';
 export const OPEN_FULLSCREEN_PREVIEW = 'FULLSCREEN/OPEN_PREVIEW';
 export const CLOSE_FULLSCREEN_PREVIEW = 'FULLSCREEN/CLOSE_PREVIEW';
+export const RENDER_INTERACTION_COMPONENT = "INTERACTION/COMPONENT";
 
 export interface ToggleChat {
   type: typeof TOGGLE_CHAT;
@@ -56,6 +57,13 @@ export interface RenderCustomComponent {
   id?: string;
 }
 
+export interface RenderInteractionComponent {
+  type: typeof RENDER_INTERACTION_COMPONENT;
+  component: ElementType;
+  props: any;
+  id?: string;
+}
+
 export interface DropMessages {
   type: typeof DROP_MESSAGES;
 }
@@ -84,6 +92,8 @@ export interface SetBadgeCount {
 export interface MarkAllMessagesRead {
   type: typeof MARK_ALL_READ;
 }
+
+export type InteractionActions = RenderInteractionComponent;
 
 export type BehaviorActions = ToggleChat | ToggleInputDisabled | ToggleMsgLoader;
 

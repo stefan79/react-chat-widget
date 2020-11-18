@@ -50,7 +50,7 @@ export function renderCustomComponent(
   props: any,
   showAvatar: boolean,
   id?: string
-): actionsTypes.RenderCustomComponent {
+): actionsTypes.RenderCustomComponent  {
   return {
     type: actionsTypes.ADD_COMPONENT_MESSAGE,
     component,
@@ -59,6 +59,20 @@ export function renderCustomComponent(
     id
   };
 }
+
+export function renderInteractionComponent(
+  component: ElementType,
+  props: any,
+  id?: string
+): actionsTypes.RenderInteractionComponent {
+  return {
+    type: actionsTypes.RENDER_INTERACTION_COMPONENT,
+    component,
+    props,
+    id
+  }
+}
+
 
 export function dropMessages(): actionsTypes.DropMessages {
   return {

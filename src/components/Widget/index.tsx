@@ -27,6 +27,8 @@ type Props = {
   imagePreview?: boolean;
   zoomStep?: number;
   handleSubmit?: AnyFunction;
+  showSender: boolean;
+  showInteraction: boolean;
 }
 
 function Widget({
@@ -49,7 +51,9 @@ function Widget({
   showTimeStamp,
   imagePreview,
   zoomStep,
-  handleSubmit
+  handleSubmit,
+  showSender,
+  showInteraction
 }: Props) {
   const dispatch = useDispatch();
 
@@ -98,6 +102,8 @@ function Widget({
       showTimeStamp={showTimeStamp}
       imagePreview={imagePreview}
       zoomStep={zoomStep}
+      showSender={showSender}
+      showInteraction={showInteraction}
     />
   );
 }

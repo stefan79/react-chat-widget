@@ -4,6 +4,10 @@ import store from '.';
 import * as actions from './actions';
 import { LinkParams, ImageState } from './types';
 
+export function renderInteractionComponent(component: ElementType, props: any, id?: string){
+  store.dispatch(actions.renderInteractionComponent(component, props, id));
+}
+
 export function addUserMessage(text: string, id?: string) {
   store.dispatch(actions.addUserMessage(text, id));
 }

@@ -1,5 +1,15 @@
 import { ElementType } from 'react';
 
+export interface InteractionState {
+  component: InteractionComponent;
+};
+
+export interface InteractionComponent{
+  props: any;
+  component: ElementType;
+  customId?: string;
+}
+
 type BaseMessage = {
   type: string;
   component: ElementType;
@@ -10,6 +20,7 @@ type BaseMessage = {
   customId?: string;
   props?: any;
 }
+
 
 export interface Message extends BaseMessage {
   text: string;
@@ -64,6 +75,7 @@ export interface FullscreenPreviewState extends ImageState {
 };
 
 export interface GlobalState {
+  interaction: InteractionState;
   messages: MessagesState;
   behavior: BehaviorState;
   quickButtons: QuickButtonsState;

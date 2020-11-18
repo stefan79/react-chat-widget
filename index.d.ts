@@ -19,6 +19,8 @@ export function renderCustomComponent(component: ElementType, props: any): void;
 export function renderCustomComponent(component: ElementType, props: any, showAvatar: boolean): void;
 export function renderCustomComponent(component: ElementType, props: any, showAvatar: boolean, id: string): void;
 
+export function renderInteractionComponent(component: ElementType, props: any): void;
+
 export function toggleMsgLoader(): void;
 export function toggleWidget(): void;
 export function toggleInputDisabled(): void;

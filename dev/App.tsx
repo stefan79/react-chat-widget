@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 
-import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader, addLinkSnippet } from '../index';
+import { Widget, renderInteractionComponent, addResponseMessage, setQuickButtons, toggleMsgLoader, addLinkSnippet } from '../index';
 import { addUserMessage } from '..';
+
+function Interaction({}) {
+  return <img src="https://media.tenor.com/images/c50ca435dffdb837914e7cb32c1e7edf/tenor.gif"/>
+}
 
 export default class App extends Component {
   componentDidMount() {
+    renderInteractionComponent(Interaction, {});
     addResponseMessage('Welcome to this awesome chat!');
     addLinkSnippet({ link: 'https://google.com', title: 'Google' });
     addResponseMessage('![](https://raw.githubusercontent.com/Wolox/press-kit/master/logos/logo_banner.png)');
@@ -48,6 +53,7 @@ export default class App extends Component {
           handleQuickButtonClicked={this.handleQuickButtonClicked}
           imagePreview
           handleSubmit={this.handleSubmit}
+          showInteraction={true}
         />
       </div>
     );
