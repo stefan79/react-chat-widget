@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import { Widget, renderInteractionComponent, addResponseMessage, setQuickButtons, toggleMsgLoader, addLinkSnippet } from '../index';
-import { addUserMessage } from '..';
+import { Widget, renderInteractionComponent, addResponseMessage, setQuickButtons, toggleMsgLoader, addLinkSnippet, addUserMessage} from '../index';
 
 function Interaction({}) {
   return <img src="https://media.tenor.com/images/c50ca435dffdb837914e7cb32c1e7edf/tenor.gif"/>
@@ -14,6 +13,7 @@ export default class App extends Component {
     addLinkSnippet({ link: 'https://google.com', title: 'Google' });
     addResponseMessage('![](https://raw.githubusercontent.com/Wolox/press-kit/master/logos/logo_banner.png)');
     addResponseMessage('![vertical](https://d2sofvawe08yqg.cloudfront.net/reintroducing-react/hero2x?1556470143)');
+    addUserMessage("Hello");
   }
 
   handleNewUserMessage = (newMessage: any) => {
@@ -54,6 +54,7 @@ export default class App extends Component {
           imagePreview
           handleSubmit={this.handleSubmit}
           showInteraction={true}
+          showSender={false}
         />
       </div>
     );
