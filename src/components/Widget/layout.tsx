@@ -35,6 +35,7 @@ type Props = {
   zoomStep?: number;
   showSender: boolean;
   showInteraction: boolean;
+  showMessages: boolean;
 }
 
 function WidgetLayout({
@@ -59,7 +60,8 @@ function WidgetLayout({
   imagePreview,
   zoomStep,
   showSender,
-  showInteraction
+  showInteraction,
+  showMessages
 }: Props) {
   const dispatch = useDispatch();
   const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({
@@ -137,6 +139,7 @@ function WidgetLayout({
           showTimeStamp={showTimeStamp}
           showInteraction={showInteraction}
           showSender={showSender}
+          showMessages={showMessages}
         />
       }
       {customLauncher ?

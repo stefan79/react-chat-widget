@@ -29,6 +29,7 @@ type Props = {
   handleSubmit?: AnyFunction;
   showSender: boolean;
   showInteraction: boolean;
+  showMessages: boolean,
 }
 
 function Widget({
@@ -53,7 +54,8 @@ function Widget({
   zoomStep,
   handleSubmit,
   showSender,
-  showInteraction
+  showInteraction,
+  showMessages
 }: Props) {
   const dispatch = useDispatch();
 
@@ -104,6 +106,7 @@ function Widget({
       zoomStep={zoomStep}
       showSender={showSender}
       showInteraction={showInteraction}
+      showMessages={showMessages}
     />
   );
 }

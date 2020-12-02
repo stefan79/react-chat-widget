@@ -29,6 +29,7 @@ type Props = {
   showTimeStamp: boolean;
   showSender: boolean;
   showInteraction:boolean;
+  showMessages:boolean;
 };
 
 function Conversation({
@@ -48,7 +49,8 @@ function Conversation({
   sendButtonAlt,
   showTimeStamp,
   showSender,
-  showInteraction
+  showInteraction,
+  showMessages
 }: Props) {
   var sender = <></>
   if(showSender){
@@ -65,6 +67,10 @@ function Conversation({
   if(showInteraction){
     interaction = <Interaction/>
   }
+  var messages = <></>
+  if(showMessages){
+    messages = <Messages profileAvatar={profileAvatar} showTimeStamp={showTimeStamp} />
+  }
   return (
     <div className={cn('rcw-conversation-container', className)} aria-live="polite">
       <Header
@@ -74,7 +80,7 @@ function Conversation({
         showCloseButton={showCloseButton}
         titleAvatar={titleAvatar}
       />
-      <Messages profileAvatar={profileAvatar} showTimeStamp={showTimeStamp} />
+      {messages}
       <QuickButtons onQuickButtonClicked={onQuickButtonClicked} />
       {sender}
       {interaction}

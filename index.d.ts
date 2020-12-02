@@ -19,6 +19,9 @@ export function renderCustomComponent(component: ElementType, props: any): void;
 export function renderCustomComponent(component: ElementType, props: any, showAvatar: boolean): void;
 export function renderCustomComponent(component: ElementType, props: any, showAvatar: boolean, id: string): void;
 
+export function renderOverlayComponent(component: ElementType, props: any): void;
+export function showOverlayComponent(toggle: Boolean): void;
+
 export function renderInteractionComponent(component: ElementType, props: any): void;
 
 export function toggleMsgLoader(): void;

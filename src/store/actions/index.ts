@@ -73,6 +73,28 @@ export function renderInteractionComponent(
   }
 }
 
+export function renderOverlayComponent(
+  component: ElementType,
+  props: any, 
+  id?: string
+): actionsTypes.RenderOverlayComponent {
+  return {
+    type: actionsTypes.RENDER_OVERLAY_COMPONENT,
+    component,
+    props, 
+    id
+  }
+}
+
+export function showOverlayComponent(
+  toggle: Boolean
+): actionsTypes.ShowOverlayComponent {
+  return {
+    type: actionsTypes.SHOW_OVERLAY_COMPONENT,
+    toggle
+  }
+}
+
 
 export function dropMessages(): actionsTypes.DropMessages {
   return {

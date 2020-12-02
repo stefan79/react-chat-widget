@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Widget, renderInteractionComponent, addResponseMessage, setQuickButtons, toggleMsgLoader, addLinkSnippet, addUserMessage} from '../index';
+import { Widget, renderInteractionComponent, addResponseMessage, setQuickButtons, toggleMsgLoader, addLinkSnippet, addUserMessage, showOverlayComponent, renderOverlayComponent} from '../index';
 
 function Interaction({}) {
   return <img src="https://media.tenor.com/images/c50ca435dffdb837914e7cb32c1e7edf/tenor.gif"/>
@@ -14,6 +14,8 @@ export default class App extends Component {
     addResponseMessage('![](https://raw.githubusercontent.com/Wolox/press-kit/master/logos/logo_banner.png)');
     addResponseMessage('![vertical](https://d2sofvawe08yqg.cloudfront.net/reintroducing-react/hero2x?1556470143)');
     addUserMessage("Hello");
+    renderOverlayComponent(Interaction, {});
+    showOverlayComponent(true);
   }
 
   handleNewUserMessage = (newMessage: any) => {
@@ -41,6 +43,7 @@ export default class App extends Component {
     return true;
   }
 
+
   render() {
     return (
       <div>
@@ -55,7 +58,8 @@ export default class App extends Component {
           handleSubmit={this.handleSubmit}
           showInteraction={true}
           showSender={false}
-        />
+          showMessages={true}
+          />
       </div>
     );
   }

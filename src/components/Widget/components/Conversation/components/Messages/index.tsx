@@ -15,13 +15,18 @@ type Props = {
 }
 
 function Messages({ profileAvatar, showTimeStamp }: Props) {
+
   const dispatch = useDispatch();
-  const { messages, typing, showChat, badgeCount } = useSelector((state: GlobalState) => ({
+  const { messages, typing, showChat, badgeCount, showOverlay, overlayComponent } = useSelector((state: GlobalState) => ({
     messages: state.messages.messages,
     badgeCount: state.messages.badgeCount,
     typing: state.behavior.messageLoader,
-    showChat: state.behavior.showChat
+    showChat: state.behavior.showChat,
+    showOverlay: state.overlay.show,
+    overlayComponent: state.overlay.component
   }));
+
+
 
   const messageRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
@@ -47,8 +52,12 @@ function Messages({ profileAvatar, showTimeStamp }: Props) {
   //   }
   // }
 
+  const OverlayToRender = overlayComponent.component
+
   return (
-    <div id="messages" className="rcw-messages-container" ref={messageRef}>
+    <div id="messages" className={`rcw-messages-container ${showOverlay? 'rcw-container-overlay-active': ''}`} ref={messageRef}>
+      <div id="overlay" className={`rcw-messages-overlay ${showOverlay? 'show': ''}`}><OverlayToRender {...overlayComponent.props}/></div>
+      <div className={`${showOverlay? 'hide': 'show'}`}>
       {messages?.map((message, index) =>
         <div className="rcw-message" key={`${index}-${format(message.timestamp, 'hh:mm')}`}>
           {profileAvatar &&
@@ -59,6 +68,7 @@ function Messages({ profileAvatar, showTimeStamp }: Props) {
         </div>
       )}
       <Loader typing={typing} />
+      </div>
     </div>
   );
 }

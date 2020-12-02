@@ -8,6 +8,14 @@ export function renderInteractionComponent(component: ElementType, props: any, i
   store.dispatch(actions.renderInteractionComponent(component, props, id));
 }
 
+export function renderOverlayComponent(component: ElementType, props: any, id?: string){
+  store.dispatch(actions.renderOverlayComponent(component, props, id));
+}
+
+export function showOverlayComponent(toggle: Boolean){
+  store.dispatch(actions.showOverlayComponent(toggle));
+}
+
 export function addUserMessage(text: string, id?: string) {
   store.dispatch(actions.addUserMessage(text, id));
 }

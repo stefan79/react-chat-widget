@@ -54,7 +54,8 @@ function ConnectedWidget({
   zoomStep,
   handleSubmit,
   showSender,
-  showInteraction
+  showInteraction,
+  showMessages
 }: Props) {
   return (
     <Provider store={store}>
@@ -81,6 +82,7 @@ function ConnectedWidget({
         handleSubmit={handleSubmit}
         showInteraction={showInteraction}
         showSender={showSender}
+        showMessages={showMessages}
       />
     </Provider>
   );
@@ -101,7 +103,8 @@ const defaultProps = {
   imagePreview: false,
   zoomStep: 80,
   showSender: false,
-  showInteraction: true
+  showInteraction: true,
+  showMessages: true
 };
 ConnectedWidget.defaultProps = defaultProps;
 

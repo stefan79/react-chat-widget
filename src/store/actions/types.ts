@@ -18,6 +18,8 @@ export const SET_QUICK_BUTTONS = 'SET_QUICK_BUTTONS';
 export const OPEN_FULLSCREEN_PREVIEW = 'FULLSCREEN/OPEN_PREVIEW';
 export const CLOSE_FULLSCREEN_PREVIEW = 'FULLSCREEN/CLOSE_PREVIEW';
 export const RENDER_INTERACTION_COMPONENT = "INTERACTION/COMPONENT";
+export const RENDER_OVERLAY_COMPONENT = "OVERLAY/COMPONENT";
+export const SHOW_OVERLAY_COMPONENT = "OVERLAY/SHOW";
 
 export interface ToggleChat {
   type: typeof TOGGLE_CHAT;
@@ -64,6 +66,18 @@ export interface RenderInteractionComponent {
   id?: string;
 }
 
+export interface RenderOverlayComponent {
+  type: typeof RENDER_OVERLAY_COMPONENT;
+  component: ElementType;
+  props: any;
+  id?: string;
+}
+
+export interface ShowOverlayComponent{
+  type: typeof SHOW_OVERLAY_COMPONENT;
+  toggle: Boolean;
+}
+
 export interface DropMessages {
   type: typeof DROP_MESSAGES;
 }
@@ -94,6 +108,8 @@ export interface MarkAllMessagesRead {
 }
 
 export type InteractionActions = RenderInteractionComponent;
+
+export type OverlayActions = RenderOverlayComponent | ShowOverlayComponent;
 
 export type BehaviorActions = ToggleChat | ToggleInputDisabled | ToggleMsgLoader;
 

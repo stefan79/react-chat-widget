@@ -7,8 +7,22 @@ export interface InteractionState {
 export interface InteractionComponent{
   props: any;
   component: ElementType;
-  customId?: string;
+  customId?:
+  string;
 }
+
+export interface OverlayState {
+  component: OverlayComponent;
+  show: Boolean;
+};
+
+export interface OverlayComponent{
+  props: any;
+  component: ElementType;
+  customId?:
+  string;
+}
+
 
 type BaseMessage = {
   type: string;
@@ -80,4 +94,5 @@ export interface GlobalState {
   behavior: BehaviorState;
   quickButtons: QuickButtonsState;
   preview: FullscreenPreviewState;
+  overlay: OverlayState;
 }
